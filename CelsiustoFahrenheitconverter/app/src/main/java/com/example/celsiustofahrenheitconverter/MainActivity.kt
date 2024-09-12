@@ -55,6 +55,7 @@ fun CToFConverter() {
                 .size(300.dp).padding(16.dp)
         ) {
             Column(modifier = Modifier.align(Alignment.Center).padding(20.dp)) {
+                // Celsius to Fahrenheit converter, value range from 0 to 100
                 Text(text = "Celsius: ${c.roundToInt()}ºC")
                 Slider(
                     value = c,
@@ -66,6 +67,7 @@ fun CToFConverter() {
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
+                // Fahrenheit to Celsius converter, value range from 32 to 212
                 Text(text = "Fahrenheit: ${f.roundToInt()}ºF")
                 Slider(
                     value = f,
@@ -77,6 +79,7 @@ fun CToFConverter() {
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
+                // print a message based on the temperature value
                 val message =
                     if (c <= 20) "I wish it were warmer." else "I wish it were colder."
                 Text(text = message, modifier = Modifier.padding(top = 16.dp))

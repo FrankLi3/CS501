@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                             .padding(innerPadding)
                             .fillMaxSize()
                     ) {
-                        arithmetic(modifier = Modifier.align(Alignment.Center))
+                        Arithmetic(modifier = Modifier.align(Alignment.Center))
                     }
                 }
             }
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun arithmetic(modifier: Modifier = Modifier) {
+fun Arithmetic(modifier: Modifier = Modifier) {
     var num1 by remember { mutableStateOf("") }
     var num2 by remember { mutableStateOf("") }
     var oper by remember { mutableStateOf("+") }
@@ -90,6 +90,8 @@ fun arithmetic(modifier: Modifier = Modifier) {
                 }
             }
         )
+
+        // Radio buttons for selecting the operation
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)) {
@@ -158,6 +160,7 @@ fun arithmetic(modifier: Modifier = Modifier) {
     }
 }
 
+// Perform the arithmetic operation, return the result as a string
 fun operation(num1: String, num2: String, operation: String): String {
     val num1 = num1.toDoubleOrNull()
     val num2 = num2.toDoubleOrNull()
@@ -166,6 +169,7 @@ fun operation(num1: String, num2: String, operation: String): String {
         return "Invalid input"
     }
 
+    // Should not divide by zero, return an error message
     return when (operation) {
         "+" -> (num1 + num2).toString()
         "-" -> (num1 - num2).toString()
@@ -186,7 +190,7 @@ fun GreetingPreview() {
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
-            arithmetic(modifier = Modifier.align(Alignment.Center))
+            Arithmetic(modifier = Modifier.align(Alignment.Center))
         }
     }
 }
